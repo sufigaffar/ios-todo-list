@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TodoItemListView: View {
     @State private var message: String = ""
-    
     @State private var todoItems: [TodoItem] = [
         TodoItem(message: "This is a todo list item", id: 1),
         TodoItem(message: "This is another item", id: 2)
@@ -33,18 +32,9 @@ struct TodoItemListView: View {
                 
                 List {
                     ForEach(todoItems) { todoItem in
-                        HStack {
-                            Text(todoItem.message)
-                            
-                            Spacer()
-                            
-                            Button(action: {()
-                                if let item = self.todoItems.firstIndex(where: {$0.id == todoItem.id}) {
-                                    self.todoItems.remove(at: item)
-                                }
-                            }) {
-                                Text("Delete")
-                                    .foregroundColor(Color.red)
+                        TodoItemView(todoItem: todoItem) {
+                            if let item = self.todoItems.firstIndex(where: {$0.id == todoItem.id}) {
+                                self.todoItems.remove(at: item)
                             }
                         }
                     }

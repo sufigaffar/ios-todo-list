@@ -17,7 +17,7 @@ struct TodoItemListView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-                TextField("Enter a new item", text: $message, onCommit:  {
+                TextField("Enter a new item", text: $message, onCommit: {
                     self.todoItems.append(
                         TodoItem(
                             message: self.message,

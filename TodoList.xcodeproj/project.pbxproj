@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		AB3A0FE7259BAA1D00310A10 /* TodoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3A0FE6259BAA1D00310A10 /* TodoListApp.swift */; };
-		AB3A0FE9259BAA1D00310A10 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3A0FE8259BAA1D00310A10 /* ContentView.swift */; };
 		AB3A0FEB259BAA2100310A10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB3A0FEA259BAA2100310A10 /* Assets.xcassets */; };
 		AB3A0FEE259BAA2100310A10 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB3A0FED259BAA2100310A10 /* Preview Assets.xcassets */; };
 		AB3A0FF9259BAA2200310A10 /* TodoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3A0FF8259BAA2200310A10 /* TodoListTests.swift */; };
 		AB3A1004259BAA2200310A10 /* TodoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3A1003259BAA2200310A10 /* TodoListUITests.swift */; };
 		AB3A1015259BADD500310A10 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3A1014259BADD500310A10 /* TodoItem.swift */; };
 		AB3A101D259BAE1300310A10 /* TodoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3A101C259BAE1300310A10 /* TodoItemView.swift */; };
+		AB3A1022259BB79800310A10 /* TodoItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3A1021259BB79800310A10 /* TodoItemListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,6 @@
 /* Begin PBXFileReference section */
 		AB3A0FE3259BAA1D00310A10 /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3A0FE6259BAA1D00310A10 /* TodoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListApp.swift; sourceTree = "<group>"; };
-		AB3A0FE8259BAA1D00310A10 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AB3A0FEA259BAA2100310A10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB3A0FED259BAA2100310A10 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB3A0FEF259BAA2100310A10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		AB3A1005259BAA2200310A10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB3A1014259BADD500310A10 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		AB3A101C259BAE1300310A10 /* TodoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemView.swift; sourceTree = "<group>"; };
+		AB3A1021259BB79800310A10 /* TodoItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 			children = (
 				AB3A1014259BADD500310A10 /* TodoItem.swift */,
 				AB3A0FE6259BAA1D00310A10 /* TodoListApp.swift */,
-				AB3A0FE8259BAA1D00310A10 /* ContentView.swift */,
+				AB3A1021259BB79800310A10 /* TodoItemListView.swift */,
 				AB3A0FEA259BAA2100310A10 /* Assets.xcassets */,
 				AB3A0FEF259BAA2100310A10 /* Info.plist */,
 				AB3A0FEC259BAA2100310A10 /* Preview Content */,
@@ -265,7 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB3A0FE9259BAA1D00310A10 /* ContentView.swift in Sources */,
+				AB3A1022259BB79800310A10 /* TodoItemListView.swift in Sources */,
 				AB3A101D259BAE1300310A10 /* TodoItemView.swift in Sources */,
 				AB3A1015259BADD500310A10 /* TodoItem.swift in Sources */,
 				AB3A0FE7259BAA1D00310A10 /* TodoListApp.swift in Sources */,

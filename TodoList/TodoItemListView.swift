@@ -48,6 +48,7 @@ struct TodoItemListView: View {
                 ToolbarItem(placement: .bottomBar) {
                     Spacer()
                 }
+                
                 ToolbarItem(placement: .bottomBar) {
                     Button(action: {()
                         self.newItemClicked = true;

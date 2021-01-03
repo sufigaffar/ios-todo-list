@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct NewTodoListItem: View {
-    @State private var message: String = ""
+    @State private var message = ""
+    @State private var date = Date()
     
     var createAction: (String) -> Void
     
+    private func createNewItem() -> Void {
+        self.createAction(self.message)
+        self.message = ""
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
-            TextField("Enter a new item", text: $message, onCommit: {
-                self.createAction(self.message)
-                self.message = ""
-            })
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .padding(.horizontal)
+            TextField("Enter a new item", text: $message, onCommit: createNewItem)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.horizontal)
             
-            Button(action: {()
-                self.createAction(self.message)
-                self.message = ""
-            }) {
+            Button(action: createNewItem) {
                 Text("Create item")
             }
             .padding(5)

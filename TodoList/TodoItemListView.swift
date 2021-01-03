@@ -8,42 +8,60 @@
 import SwiftUI
 
 struct TodoItemListView: View {
-    @State private var message: String = ""
-    @State private var todoItems: [TodoItem] = [
-        TodoItem(message: "This is a todo list item", id: 1),
-        TodoItem(message: "This is another item", id: 2)
-    ]
+    @State private var todoItems: [TodoItem] = []
+    @State private var newItemClicked = false
     
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-                TextField("Enter a new item", text: $message, onCommit: {
-                    self.todoItems.append(
-                        TodoItem(
-                            message: self.message,
-                            id: (self.todoItems.last?.id ?? 0) + 1
-                        )
-                    )
-                    
-                    self.message = ""
-                })
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.horizontal)
-                
-                List {
-                    ForEach(todoItems) { todoItem in
-                        TodoItemView(todoItem: todoItem) {
-                            if let item = self.todoItems.firstIndex(where: {$0.id == todoItem.id}) {
-                                self.todoItems.remove(at: item)
+                if (todoItems.count != 0) {
+                    List {
+                        ForEach(todoItems) { todoItem in
+                            TodoItemView(todoItem: todoItem) {
+                                if let item = self.todoItems.firstIndex(where: {$0.id == todoItem.id}) {
+                                    self.todoItems.remove(at: item)
+                                }
                             }
                         }
                     }
+                    .listStyle(PlainListStyle())
+                    .padding(.top, 5)
+                } else {
+                    Text("No todo list items found.")
                 }
-                .listStyle(PlainListStyle())
-                .padding(.top, 5)
+                
+                NavigationLink(destination: NewTodoListItem() { (message: String) in
+                    self.todoItems.append(
+                        TodoItem(
+                            message: message,
+                            date: Date(),
+                            id: (self.todoItems.last?.id ?? 0) + 1
+                        )
+                    )
+                }, isActive: $newItemClicked) {
+                    EmptyView()
+                }
             }
             .navigationBarTitle("Todo List")
             .padding(.top, 5)
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    Spacer()
+                }
+                ToolbarItem(placement: .bottomBar) {
+                    Button(action: {()
+                        self.newItemClicked = true;
+                    }) {
+                        Image(systemName: "square.and.pencil")
+                            .resizable()
+                            .padding(6)
+                            .frame(width: 24, height: 24)
+                            .background(Color.blue)
+                            .clipShape(Circle())
+                            .foregroundColor(.white)
+                    }
+                }
+            }
         }
     }
 }

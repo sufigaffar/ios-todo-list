@@ -16,9 +16,28 @@ struct TodoItemView: View {
         self.clickAction = clickAction
     }
     
+    /// Gets the formatted date for the current TodoItem as a string.
+    private func getFormattedDateString() -> String {
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .medium
+        dateFormatter.locale = Locale.current
+        
+        return dateFormatter.string(from: todoItem.date)
+    }
+    
     var body: some View {
         HStack {
-            Text(todoItem.message)
+            VStack(alignment: .leading) {
+                Text(todoItem.message)
+                
+                Text(getFormattedDateString())
+                    .fontWeight(.light)
+                    .foregroundColor(Color.gray)
+                    .padding(.top, 1)
+                    .font(.system(size: 14))
+            }
             
             Spacer()
             
@@ -36,6 +55,7 @@ struct TodoItemView_Previews: PreviewProvider {
             TodoItemView(
                 todoItem: TodoItem(
                     message: "Test message",
+                    date: Date(),
                     id: 1
                 ),
                 clickAction: {}
@@ -43,6 +63,7 @@ struct TodoItemView_Previews: PreviewProvider {
             TodoItemView(
                 todoItem: TodoItem(
                     message: "Another message",
+                    date: Date(),
                     id: 2
                 ),
                 clickAction: {}

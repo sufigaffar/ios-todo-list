@@ -15,6 +15,7 @@
 		AB3A1015259BADD500310A10 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3A1014259BADD500310A10 /* TodoItem.swift */; };
 		AB3A101D259BAE1300310A10 /* TodoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3A101C259BAE1300310A10 /* TodoItemView.swift */; };
 		AB3A1022259BB79800310A10 /* TodoItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3A1021259BB79800310A10 /* TodoItemListView.swift */; };
+		ABCBC7A5259BD7EA005B4598 /* NewTodoListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCBC7A4259BD7EA005B4598 /* NewTodoListItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		AB3A1014259BADD500310A10 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		AB3A101C259BAE1300310A10 /* TodoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemView.swift; sourceTree = "<group>"; };
 		AB3A1021259BB79800310A10 /* TodoItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemListView.swift; sourceTree = "<group>"; };
+		ABCBC7A4259BD7EA005B4598 /* NewTodoListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoListItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				AB3A0FEF259BAA2100310A10 /* Info.plist */,
 				AB3A0FEC259BAA2100310A10 /* Preview Content */,
 				AB3A101C259BAE1300310A10 /* TodoItemView.swift */,
+				ABCBC7A4259BD7EA005B4598 /* NewTodoListItem.swift */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				AB3A101D259BAE1300310A10 /* TodoItemView.swift in Sources */,
 				AB3A1015259BADD500310A10 /* TodoItem.swift in Sources */,
 				AB3A0FE7259BAA1D00310A10 /* TodoListApp.swift in Sources */,
+				ABCBC7A5259BD7EA005B4598 /* NewTodoListItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

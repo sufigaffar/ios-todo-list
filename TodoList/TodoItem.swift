@@ -9,5 +9,6 @@ import Foundation
 
 struct TodoItem: Identifiable {
     var message: String
+    var date: Date
     var id: Int
 }

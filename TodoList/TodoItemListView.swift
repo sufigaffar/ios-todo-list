@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TodoItemListView: View {
     @State private var todoItems: [TodoItem] = []
-    @State private var newItemClicked = false
+    @State private var newItemView = false
     
     var body: some View {
         NavigationView {
@@ -30,15 +30,16 @@ struct TodoItemListView: View {
                     Text("No todo list items found.")
                 }
                 
-                NavigationLink(destination: NewTodoListItem() { (message: String) in
+                NavigationLink(destination: NewTodoListItem() { (message: String, date: Date) in
                     self.todoItems.append(
                         TodoItem(
                             message: message,
-                            date: Date(),
+                            date: date,
                             id: (self.todoItems.last?.id ?? 0) + 1
                         )
                     )
-                }, isActive: $newItemClicked) {
+                    self.newItemView = false
+                }, isActive: $newItemView) {
                     EmptyView()
                 }
             }
@@ -51,7 +52,7 @@ struct TodoItemListView: View {
                 
                 ToolbarItem(placement: .bottomBar) {
                     Button(action: {()
-                        self.newItemClicked = true;
+                        self.newItemView = true;
                     }) {
                         Image(systemName: "square.and.pencil")
                             .resizable()

@@ -11,29 +11,49 @@ struct NewTodoListItem: View {
     @State private var message = ""
     @State private var date = Date()
     
-    var createAction: (String) -> Void
+    var createAction: (_ message: String, _ date: Date) -> Void
     
+    /// Creates a new item with user entered data.
     private func createNewItem() -> Void {
-        self.createAction(self.message)
-        self.message = ""
+        createAction(message, date)
+        message = ""
     }
     
     var body: some View {
         VStack(alignment: .leading) {
-            TextField("Enter a new item", text: $message, onCommit: createNewItem)
+            TextField("Message", text: $message, onCommit: createNewItem)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.horizontal)
+                .padding(.top, 10)
             
-            Button(action: createNewItem) {
-                Text("Create item")
-            }
-            .padding(5)
-            .foregroundColor(.white)
-            .background(Color.blue)
-            .cornerRadius(8)
+            DatePicker(
+                "",
+                selection: $date,
+                displayedComponents: [.date, .hourAndMinute]
+            )
+            .datePickerStyle(GraphicalDatePickerStyle())
+            .padding(.top, 10)
             
             Spacer()
         }
         .navigationBarTitle("New todo item")
+        .toolbar {
+            if (message != "") {
+                Button(action: createNewItem) {
+                    Text("Done")
+                        .fontWeight(.bold)
+                }
+            }
+        }
+    }
+}
+
+struct NewTodoListItem_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            NewTodoListItem(
+                createAction: {(message: String, date: Date) in}
+            )
+        }
     }
 }

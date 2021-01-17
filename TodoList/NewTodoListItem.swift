@@ -20,23 +20,22 @@ struct NewTodoListItem: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             TextField("Message", text: $message, onCommit: createNewItem)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.horizontal)
-                .padding(.top, 10)
-            
+                .padding(.top, 20)
             DatePicker(
-                "",
+                "Date",
                 selection: $date,
                 displayedComponents: [.date, .hourAndMinute]
             )
-            .datePickerStyle(GraphicalDatePickerStyle())
             .padding(.top, 10)
+            .padding(.horizontal)
             
             Spacer()
         }
-        .navigationBarTitle("New todo item")
+        .navigationBarTitle("New todo item", displayMode: .inline)
         .toolbar {
             if (message != "") {
                 Button(action: createNewItem) {

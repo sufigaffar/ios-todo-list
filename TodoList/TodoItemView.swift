@@ -9,9 +9,9 @@ import SwiftUI
 
 struct TodoItemView: View {
     private var todoItem: TodoItem
-    private var clickAction: () -> Void
+    private var clickAction: (() -> Void)?
     
-    init(todoItem: TodoItem, clickAction: @escaping () -> Void) {
+    init(todoItem: TodoItem, clickAction: (() -> Void)? = nil) {
         self.todoItem = todoItem
         self.clickAction = clickAction
     }
@@ -37,13 +37,6 @@ struct TodoItemView: View {
                     .foregroundColor(Color.gray)
                     .padding(.top, 1)
                     .font(.system(size: 14))
-            }
-            
-            Spacer()
-            
-            Button(action: clickAction) {
-                Text("Delete")
-                    .foregroundColor(Color.red)
             }
         }
     }

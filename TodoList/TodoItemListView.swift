@@ -11,18 +11,20 @@ struct TodoItemListView: View {
     @State private var todoItems: [TodoItem] = []
     @State private var newItemView = false
     
+    /// Deletes a todolist item at the supplied offset.
+    private func deleteItem(offset: IndexSet) {
+        todoItems.remove(atOffsets: offset)
+    }
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
                 if (todoItems.count != 0) {
                     List {
                         ForEach(todoItems) { todoItem in
-                            TodoItemView(todoItem: todoItem) {
-                                if let item = self.todoItems.firstIndex(where: {$0.id == todoItem.id}) {
-                                    self.todoItems.remove(at: item)
-                                }
-                            }
+                            TodoItemView(todoItem: todoItem)
                         }
+                        .onDelete(perform: deleteItem)
                     }
                     .listStyle(PlainListStyle())
                     .padding(.top, 5)

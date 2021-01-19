@@ -36,7 +36,7 @@ struct TodoItemView: View {
                     .fontWeight(.light)
                     .foregroundColor(Color.gray)
                     .padding(.top, 1)
-                    .font(.system(size: 14))
+                    .font(.system(size: 12))
             }
         }
     }
